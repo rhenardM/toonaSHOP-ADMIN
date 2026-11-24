@@ -9,7 +9,7 @@ import { type DataColumn, DataTable } from "@/components/shared/data-table"
 import { PageContainer, PageIntro } from "@/components/shared/page-container"
 import { PaginationBar } from "@/components/shared/pagination-bar"
 import { StatusPill } from "@/components/shared/status-pill"
-import { roleLabel } from "@/lib/auth/session-user"
+import { roleLabels } from "@/lib/auth/session-user"
 import { formatNumber } from "@/lib/utils"
 
 import { useUsers } from "../hooks/use-users"
@@ -53,7 +53,19 @@ export function UsersListView() {
       className: "hidden lg:table-cell",
       cell: (u) => <span className="block max-w-[220px] truncate text-ink-soft">{u.email ?? "—"}</span>,
     },
-    { id: "role", header: "Rôle", cell: (u) => <StatusPill tone="brand">{roleLabel(u.roles)}</StatusPill> },
+    {
+      id: "role",
+      header: "Rôle",
+      cell: (u) => (
+        <span className="flex flex-wrap gap-1">
+          {roleLabels(u.roles).map((label) => (
+            <StatusPill key={label} tone="brand">
+              {label}
+            </StatusPill>
+          ))}
+        </span>
+      ),
+    },
     { id: "site", header: "Affectation", cell: (u) => <span className="text-ink-soft">{assignment(u) ?? "—"}</span> },
     { id: "status", header: "Statut", cell: (u) => <EnabledPill user={u} /> },
     {
@@ -111,7 +123,7 @@ export function UsersListView() {
                   <EnabledPill user={u} />
                 </span>
                 <span className="flex flex-wrap gap-x-3 gap-y-1 text-[12.5px] text-ink-soft">
-                  <span>{roleLabel(u.roles)}</span>
+                  <span>{roleLabels(u.roles).join(", ")}</span>
                   {u.phone ? <span>{u.phone}</span> : null}
                 </span>
                 {assignment(u) ? <span className="text-[12.5px] text-muted-foreground">{assignment(u)}</span> : null}
@@ -137,7 +149,7 @@ export function UsersListView() {
         ) : null}
       </AnalyticsCard>
 
-      <UserFormDialog target={formTarget} onOpenChange={(open) => !open && setFormTarget(null)} />
+      <UserFormDialog target={formTarget} knownUsers={users.data?.items ?? []} onOpenChange={(open) => !open && setFormTarget(null)} />
       <ToggleUserDialog user={toggling} onOpenChange={(open) => !open && setToggling(null)} />
     </PageContainer>
   )

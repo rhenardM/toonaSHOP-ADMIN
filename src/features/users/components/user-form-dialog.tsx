@@ -13,7 +13,7 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { getErrorMessage } from "@/lib/api/errors"
 
 import { useUserMutations } from "../hooks/use-users"
-import { ROLE_OPTIONS, USER_ROLES } from "../lib/user-roles"
+import { nextRoles, roleOptions } from "../lib/user-roles"
 import type { User } from "../types/user.types"
 
 const PASSWORD_MIN_LENGTH = 6
@@ -30,7 +30,7 @@ const baseSchema = z.object({
     .string()
     .trim()
     .regex(/^\+?\d[\d\s]{5,}$/, "Numéro de téléphone invalide."),
-  role: z.enum(USER_ROLES),
+  role: z.string().regex(/^ROLE_[A-Z0-9_]+$/, "Choisissez un rôle."),
   status: z.enum(["enabled", "disabled"]),
 })
 
@@ -49,19 +49,27 @@ type UserFormValues = z.infer<typeof createSchema>
 /** `"new"` opens the creation form, a user opens the edit form, `null` closes the dialog. */
 export type UserFormTarget = User | "new" | null
 
-export function UserFormDialog({ target, onOpenChange }: { target: UserFormTarget; onOpenChange: (open: boolean) => void }) {
+interface UserFormDialogProps {
+  target: UserFormTarget
+  onOpenChange: (open: boolean) => void
+  /** Loaded users: their roles (e.g. ROLE_VENDEUR) are offered in the role select. */
+  knownUsers: readonly User[]
+}
+
+export function UserFormDialog({ target, onOpenChange, knownUsers }: UserFormDialogProps) {
   return (
     <Dialog open={target !== null} onOpenChange={onOpenChange}>
       <DialogContent className="max-h-[calc(100dvh-2rem)] gap-5 overflow-y-auto p-6 sm:max-w-lg">
         {target ? (
-          <UserForm key={target === "new" ? "new" : target.id} user={target === "new" ? null : target} onDone={() => onOpenChange(false)} />
+          <UserForm key={target === "new" ? "new" : target.id} user={target === "new" ? null : target} knownUsers={knownUsers} onDone={() => onOpenChange(false)} />
         ) : null}
       </DialogContent>
     </Dialog>
   )
 }
 
-function UserForm({ user, onDone }: { user: User | null; onDone: () => void }) {
+function UserForm({ user, knownUsers, onDone }: { user: User | null; knownUsers: readonly User[]; onDone: () => void }) {
+  const options = roleOptions(knownUsers, user?.roles)
   const { create, update } = useUserMutations()
   const mutation = user ? update : create
   const {
@@ -90,7 +98,8 @@ function UserForm({ user, onDone }: { user: User | null; onDone: () => void }) {
           numero: values.numero,
           nom: values.nom,
           prenom: values.prenom,
-          role: values.role,
+          // Keeps the account's other roles; only the main role can change here.
+          roles: nextRoles(user.roles, user.role, values.role),
           password: values.password || undefined,
           isEnable: values.status === "enabled",
         },
@@ -149,7 +158,7 @@ function UserForm({ user, onDone }: { user: User | null; onDone: () => void }) {
           control={control}
           name="role"
           render={({ field }) => (
-            <FilterSelect id="user-role" label="Rôle" value={field.value} options={ROLE_OPTIONS} onValueChange={field.onChange} className="h-11 w-full font-medium" />
+            <FilterSelect id="user-role" label="Rôle" value={field.value} options={options} onValueChange={field.onChange} className="h-11 w-full font-medium" />
           )}
         />
       </Field>

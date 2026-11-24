@@ -15,7 +15,7 @@ import { StatTile, StatGrid } from "@/components/shared/stat-tile"
 import { StatusPill } from "@/components/shared/status-pill"
 import { Skeleton } from "@/components/ui/skeleton"
 import { paymentColumns } from "@/features/payments/components/payment-columns"
-import { roleLabel } from "@/lib/auth/session-user"
+import { roleLabels } from "@/lib/auth/session-user"
 import { DEFAULT_CURRENCY } from "@/lib/constants/app"
 import { formatCurrency, formatDate, formatNumber } from "@/lib/utils"
 
@@ -155,7 +155,19 @@ function Detail({ icon, label, value }: { icon: ReactNode; label: string; value:
 const userColumns: DataColumn<CompanyUser>[] = [
   { id: "name", header: "Nom", cell: (u) => <span className="font-bold text-ink">{u.name}</span> },
   { id: "phone", header: "Téléphone", cell: (u) => <span className="whitespace-nowrap text-ink-soft">{u.phone ?? "—"}</span> },
-  { id: "role", header: "Rôle", cell: (u) => <StatusPill tone="neutral">{roleLabel(u.roles)}</StatusPill> },
+  {
+    id: "role",
+    header: "Rôle",
+    cell: (u) => (
+      <span className="flex flex-wrap gap-1">
+        {roleLabels(u.roles).map((label) => (
+          <StatusPill key={label} tone="neutral">
+            {label}
+          </StatusPill>
+        ))}
+      </span>
+    ),
+  },
   { id: "site", header: "Affectation", cell: (u) => <span className="text-ink-soft">{[u.pointOfSale, u.warehouse].filter(Boolean).join(" · ") || "—"}</span> },
   { id: "created", header: "Créé le", cell: (u) => <span className="whitespace-nowrap text-ink-soft">{u.createdAt ? formatDate(u.createdAt) : "—"}</span> },
 ]

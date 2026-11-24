@@ -29,7 +29,7 @@ export function ToggleUserDialog({ user, onOpenChange }: { user: User | null; on
       onConfirm={() => {
         if (!user) return
         update.mutate(
-          { id: user.id, numero: user.phone, nom: user.lastName, prenom: user.firstName, role: user.role, isEnable: enabling },
+          { id: user.id, numero: user.phone, nom: user.lastName, prenom: user.firstName, roles: user.roles, isEnable: enabling },
           {
             onSuccess: () => {
               toast.success(enabling ? "Compte activé" : "Compte désactivé", { description: user.name })

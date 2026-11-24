@@ -1,6 +1,7 @@
 import type { IsoDate } from "@/types/domain"
 
-export type UserRole = "ROLE_USER" | "ROLE_MANAGER" | "ROLE_ADMIN"
+/** `ROLE_XXX` code. The set is open: the backend defines business roles (e.g. ROLE_VENDEUR). */
+export type UserRole = string
 
 /** Raw user as returned by GET /user/list (API spec §5.8). Activation reads as `is_enable`. */
 export interface RawUser {
@@ -25,7 +26,7 @@ export interface User {
   phone: string
   email: string | null
   roles: string[]
-  /** Highest known role, used to pre-fill the edit form. */
+  /** Most significant role (see `primaryRole`), used to pre-fill the edit form. */
   role: UserRole
   isEnabled: boolean
   pointOfSale: string | null
@@ -46,7 +47,8 @@ export interface UpdateUserInput {
   numero: string
   nom: string
   prenom: string
-  role: UserRole
+  /** Full role list sent to the API — existing roles are preserved by the callers. */
+  roles: UserRole[]
   /** Omitted to keep the current password. */
   password?: string
   isEnable: boolean

@@ -15,9 +15,9 @@ export function createUser({ numero, password, nom, prenom, role }: CreateUserIn
 }
 
 /** Activation is written as `isEnable` (read as `is_enable`). */
-export function updateUser({ id, numero, nom, prenom, role, password, isEnable }: UpdateUserInput): Promise<unknown> {
+export function updateUser({ id, numero, nom, prenom, roles, password, isEnable }: UpdateUserInput): Promise<unknown> {
   return apiRequest(`/user/update/${id}`, {
     method: "PUT",
-    body: { numero, nom, prenom, roles: [role], isEnable, ...(password ? { password } : {}) },
+    body: { numero, nom, prenom, roles, isEnable, ...(password ? { password } : {}) },
   })
 }

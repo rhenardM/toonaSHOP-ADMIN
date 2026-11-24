@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>ToonaSHOP – Tableau de bord</title>
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap">
+<style>
+body{margin:0;background:#F3F6F9}
+a{color:#0070B0;text-decoration:none}a:hover{color:#005A8E}
+.nav-link:hover{background:#EEF3F7}
+.row-hover:hover{background:#F7FAFC}
+</style>
+</helmet>
+<div style="font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; color: #0F1B2A; background: #F3F6F9; min-height: 100vh; display: flex; flex-wrap: wrap; align-items: stretch; font-size: 14px">
+
+<aside style="flex: 1 0 248px; max-width: 100%; background: #FFFFFF; border-right: 1px solid #E3E8EE; box-sizing: border-box; padding: 20px 16px; display: flex; flex-direction: column; gap: 22px">
+<div style="display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 0 6px">
+<img src="./assets/a97f39a56c8ffbbf622a8f7bbe75e129.png" alt="ToonaSHOP – Entreprendre, Comprendre, Grandir" style="height: 58px; width: auto; display: block">
+<span style="font-size: 11px; font-weight: 700; letter-spacing: 0.06em; color: #005A8E; background: #E6F1F8; border-radius: 6px; padding: 4px 8px">ADMIN</span>
+</div>
+
+<nav aria-label="Navigation principale" style="display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-direction: column; gap: 2px">
+<p style="margin: 0 0 6px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: #5B6675">APERÇU</p>
+<a href="#" aria-current="page" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; background: #E6F1F8; color: #005A8E; font-weight: 700; min-height: 24px">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"></path></svg>
+Tableau de bord</a>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 2px">
+<p style="margin: 0 0 6px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: #5B6675">CLIENTS</p>
+<a href="#" class="nav-link" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #33404F; font-weight: 500">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"></rect><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"></path></svg>
+Entreprises</a>
+<a href="Paiements.dc.html" class="nav-link" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #33404F; font-weight: 500">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M2 10h20"></path></svg>
+Paiements &amp; abonnements</a>
+<a href="#" class="nav-link" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #33404F; font-weight: 500">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5z"></path><path d="m3 13 9 5 9-5"></path></svg>
+Plans</a>
+<a href="#" class="nav-link" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #33404F; font-weight: 500">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12V4a1 1 0 0 1 1-1h8l9 9-9 9z"></path><circle cx="7.5" cy="7.5" r="1.5"></circle></svg>
+Codes promo</a>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 2px">
+<p style="margin: 0 0 6px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: #5B6675">GESTION IMF</p>
+<a href="#" class="nav-link" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #33404F; font-weight: 500">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+<span style="flex: 1">En attente</span><span style="font-size: 12px; font-weight: 700; color: #8A5200; background: #FEF3E2; border-radius: 999px; padding: 2px 8px">4</span></a>
+<a href="#" class="nav-link" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #33404F; font-weight: 500">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10 12 4l9 6"></path><path d="M5 10v8M9 10v8M15 10v8M19 10v8M3 21h18"></path></svg>
+Approuvés</a>
+<a href="#" class="nav-link" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #33404F; font-weight: 500">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z"></path><path d="m9 12 2 2 4-4"></path></svg>
+Valider un groupe</a>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 2px">
+<p style="margin: 0 0 6px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: #5B6675">SUPPORT</p>
+<a href="#" class="nav-link" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #33404F; font-weight: 500">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><path d="M12 7v4M12 14h.01"></path></svg>
+Réclamations</a>
+<a href="#" class="nav-link" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #33404F; font-weight: 500">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.2.6 3.5 2.8 3.5 6"></path></svg>
+Utilisateurs</a>
+</div>
+
+<div style="display: flex; flex-direction: column; gap: 2px">
+<p style="margin: 0 0 6px 10px; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; color: #5B6675">SITE WEB</p>
+<a href="#" class="nav-link" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #33404F; font-weight: 500">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg>
+<span style="flex: 1">Messages</span><span style="font-size: 12px; font-weight: 700; color: #FFFFFF; background: #0070B0; border-radius: 999px; padding: 2px 8px">7</span></a>
+<a href="#" class="nav-link" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #33404F; font-weight: 500">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a1 1 0 0 1 1-1h5l2 2h9a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"></path></svg>
+Bibliothèque</a>
+<a href="#" class="nav-link" style="display: flex; align-items: center; gap: 10px; padding: 10px 12px; border-radius: 10px; color: #33404F; font-weight: 500">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"></path></svg>
+Leads</a>
+</div>
+</nav>
+
+<div style="margin-top: auto; background: #0070B0; border-radius: 14px; padding: 18px; color: #FFFFFF; display: flex; flex-direction: column; gap: 10px">
+<p style="margin: 0; font-size: 15px; font-weight: 800">Contacts rapides</p>
+<p style="margin: 0; font-size: 12.5px; line-height: 1.5; color: #E6F1F8">Joignez l’équipe ventes ou support directement sur WhatsApp.</p>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<a href="#" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; background: #FFFFFF; color: #005A8E; border-radius: 9px; font-weight: 700; font-size: 13px">
+<svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"></path></svg>Ventes</a>
+<a href="#" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; background: #F4A82E; color: #1F1300; border-radius: 9px; font-weight: 700; font-size: 13px">
+<svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.3-3.9A8 8 0 1 1 8 19z"></path></svg>Support</a>
+</div>
+</div>
+</aside>
+
+<main style="flex: 999 1 560px; min-width: 0; box-sizing: border-box; display: flex; flex-direction: column">
+
+<header style="display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 18px 32px; background: #FFFFFF; border-bottom: 1px solid #E3E8EE">
+<div style="flex: 1 1 260px; min-width: 0">
+<h1 style="margin: 0; font-size: 24px; font-weight: 800; letter-spacing: -0.02em">Tableau de bord</h1>
+<p style="margin: 2px 0 0; color: #5B6675; font-size: 13px">Lundi 23 novembre 2026 · vue d’ensemble de la plateforme</p>
+</div>
+<label style="flex: 0 1 380px; display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 14px; border: 1px solid #E3E8EE; border-radius: 11px; background: #F7FAFC; color: #5B6675; box-sizing: border-box">
+<svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4-4"></path></svg>
+<span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Recherche globale</span>
+<input type="search" placeholder="Rechercher une entreprise, une page…" style="flex: 1; min-width: 0; border: 0; background: transparent; font: inherit; font-size: 13.5px; color: #0F1B2A; outline: none">
+<kbd style="font-family: inherit; font-size: 11px; color: #5B6675; border: 1px solid #D5DCE4; border-radius: 6px; padding: 2px 6px; background: #FFFFFF">⌘K</kbd>
+</label>
+<button type="button" aria-label="Notifications, 7 nouveaux messages" style="position: relative; width: 44px; height: 44px; border-radius: 11px; border: 1px solid #E3E8EE; background: #FFFFFF; color: #33404F; display: flex; align-items: center; justify-content: center; cursor: pointer">
+<svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"></path><path d="M10 20a2 2 0 0 0 4 0"></path></svg>
+<span style="position: absolute; top: 9px; right: 10px; width: 8px; height: 8px; border-radius: 50%; background: #F4A82E; border: 2px solid #FFFFFF"></span>
+</button>
+<div style="display: flex; align-items: center; gap: 10px">
+<span aria-hidden="true" style="width: 40px; height: 40px; border-radius: 50%; background: #005A8E; color: #FFFFFF; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px">JM</span>
+<div style="display: flex; flex-direction: column; line-height: 1.25">
+<span style="font-weight: 700; font-size: 13.5px">Jean Mukendi</span>
+<span style="font-size: 12px; color: #5B6675">Administrateur</span>
+</div>
+</div>
+</header>
+
+<div style="padding: 28px 32px 40px; display: flex; flex-direction: column; gap: 20px; max-width: 1400px; box-sizing: border-box; width: 100%">
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px">
+
+<div style="background: #FFFFFF; border: 1px solid #E3E8EE; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="width: 34px; height: 34px; border-radius: 10px; background: #E6F1F8; color: #0070B0; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"></rect><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"></path></svg></span>
+<span style="font-weight: 600; color: #33404F">Entreprises</span>
+</div>
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px">
+<div>
+<p style="margin: 0; font-size: 28px; font-weight: 800; letter-spacing: -0.02em">248</p>
+<p style="margin: 2px 0 0; font-size: 12.5px; color: #5B6675">212 actives</p>
+</div>
+<div aria-hidden="true" style="display: flex; align-items: flex-end; gap: 4px; height: 40px">
+<span style="width: 7px; height: 40%; background: #CFE3F0; border-radius: 3px"></span><span style="width: 7px; height: 55%; background: #CFE3F0; border-radius: 3px"></span><span style="width: 7px; height: 50%; background: #CFE3F0; border-radius: 3px"></span><span style="width: 7px; height: 70%; background: #CFE3F0; border-radius: 3px"></span><span style="width: 7px; height: 100%; background: #0070B0; border-radius: 3px"></span>
+</div>
+</div>
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; color: #166534; background: #E8F5EC; border-radius: 999px; padding: 3px 9px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></svg>+8,2 % ce mois</span>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E3E8EE; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="width: 34px; height: 34px; border-radius: 10px; background: #E6F1F8; color: #0070B0; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2.2.6 3.5 2.8 3.5 6"></path></svg></span>
+<span style="font-weight: 600; color: #33404F">Utilisateurs</span>
+</div>
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px">
+<div>
+<p style="margin: 0; font-size: 28px; font-weight: 800; letter-spacing: -0.02em">3 412</p>
+<p style="margin: 2px 0 0; font-size: 12.5px; color: #5B6675">toutes entreprises</p>
+</div>
+<div aria-hidden="true" style="display: flex; align-items: flex-end; gap: 4px; height: 40px">
+<span style="width: 7px; height: 50%; background: #CFE3F0; border-radius: 3px"></span><span style="width: 7px; height: 62%; background: #CFE3F0; border-radius: 3px"></span><span style="width: 7px; height: 70%; background: #CFE3F0; border-radius: 3px"></span><span style="width: 7px; height: 82%; background: #CFE3F0; border-radius: 3px"></span><span style="width: 7px; height: 100%; background: #0070B0; border-radius: 3px"></span>
+</div>
+</div>
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; color: #166534; background: #E8F5EC; border-radius: 999px; padding: 3px 9px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></svg>+12,4 % ce mois</span>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E3E8EE; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="width: 34px; height: 34px; border-radius: 10px; background: #E6F1F8; color: #0070B0; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m8 12 3 3 5-6"></path></svg></span>
+<span style="font-weight: 600; color: #33404F">Abonnements actifs</span>
+</div>
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px">
+<div>
+<p style="margin: 0; font-size: 28px; font-weight: 800; letter-spacing: -0.02em">186</p>
+<p style="margin: 2px 0 0; font-size: 12.5px; color: #5B6675">75 % des entreprises</p>
+</div>
+<div aria-hidden="true" style="display: flex; align-items: flex-end; gap: 4px; height: 40px">
+<span style="width: 7px; height: 72%; background: #CFE3F0; border-radius: 3px"></span><span style="width: 7px; height: 80%; background: #CFE3F0; border-radius: 3px"></span><span style="width: 7px; height: 76%; background: #CFE3F0; border-radius: 3px"></span><span style="width: 7px; height: 90%; background: #CFE3F0; border-radius: 3px"></span><span style="width: 7px; height: 100%; background: #0070B0; border-radius: 3px"></span>
+</div>
+</div>
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; color: #166534; background: #E8F5EC; border-radius: 999px; padding: 3px 9px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></svg>+5,1 % ce mois</span>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E3E8EE; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="width: 34px; height: 34px; border-radius: 10px; background: #FEF3E2; color: #8A5200; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>
+<span style="font-weight: 600; color: #33404F">En période d’essai</span>
+</div>
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px">
+<div>
+<p style="margin: 0; font-size: 28px; font-weight: 800; letter-spacing: -0.02em">31</p>
+<p style="margin: 2px 0 0; font-size: 12.5px; color: #5B6675">à convertir</p>
+</div>
+<div aria-hidden="true" style="display: flex; align-items: flex-end; gap: 4px; height: 40px">
+<span style="width: 7px; height: 100%; background: #FBDDA8; border-radius: 3px"></span><span style="width: 7px; height: 85%; background: #FBDDA8; border-radius: 3px"></span><span style="width: 7px; height: 90%; background: #FBDDA8; border-radius: 3px"></span><span style="width: 7px; height: 70%; background: #FBDDA8; border-radius: 3px"></span><span style="width: 7px; height: 62%; background: #F4A82E; border-radius: 3px"></span>
+</div>
+</div>
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; color: #9F1C12; background: #FDECEA; border-radius: 999px; padding: 3px 9px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 7 6 6 4-4 8 8"></path><path d="M15 17h6v-6"></path></svg>−3,0 % ce mois</span>
+</div>
+
+<div style="background: #FFFFFF; border: 1px solid #E3E8EE; border-radius: 16px; padding: 18px; display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; align-items: center; gap: 10px">
+<span style="width: 34px; height: 34px; border-radius: 10px; background: #E6F1F8; color: #0070B0; display: flex; align-items: center; justify-content: center"><svg aria-hidden="true" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M17 6.5C17 4.6 14.8 3.5 12 3.5S7 4.6 7 6.8 9 9.8 12 10.5s5 1.6 5 3.9-2.2 3.6-5 3.6-5-1.2-5-3.2"></path></svg></span>
+<span style="font-weight: 600; color: #33404F">Revenu total</span>
+</div>
+<div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 8px">
+<div>
+<p style="margin: 0; font-size: 28px; font-weight: 800; letter-spacing: -0.02em">48 200 <span style="font-size: 15px; font-weight: 700; color: #5B6675">USD</span></p>
+<p style="margin: 2px 0 0; font-size: 12.5px; color: #5B6675">12 derniers mois</p>
+</div>
+</div>
+<span style="align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 700; color: #166534; background: #E8F5EC; border-radius: 999px; padding: 3px 9px"><svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 6-6 4 4 8-8"></path><path d="M15 7h6v6"></path></svg>+16,7 % ce mois</span>
+</div>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+
+<section aria-labelledby="rev-title" style="flex: 2 1 520px; min-width: 0; background: #FFFFFF; border: 1px solid #E3E8EE; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 12px">
+<div>
+<h2 id="rev-title" style="margin: 0; font-size: 17px; font-weight: 800">Évolution des revenus</h2>
+<p style="margin: 3px 0 0; color: #5B6675; font-size: 13px">Abonnements encaissés par mois, en USD</p>
+</div>
+<div role="group" aria-label="Période" style="display: flex; gap: 4px; background: #F1F4F8; border-radius: 10px; padding: 4px">
+<button type="button" style="border: 0; border-radius: 7px; padding: 0 12px; height: 32px; font: inherit; font-size: 12.5px; font-weight: 600; background: transparent; color: #33404F; cursor: pointer">30 j</button>
+<button type="button" style="border: 0; border-radius: 7px; padding: 0 12px; height: 32px; font: inherit; font-size: 12.5px; font-weight: 600; background: transparent; color: #33404F; cursor: pointer">90 j</button>
+<button type="button" aria-pressed="true" style="border: 0; border-radius: 7px; padding: 0 12px; height: 32px; font: inherit; font-size: 12.5px; font-weight: 700; background: #0070B0; color: #FFFFFF; cursor: pointer">12 mois</button>
+</div>
+</div>
+
+<div style="display: flex; gap: 12px">
+<div aria-hidden="true" style="display: flex; flex-direction: column; justify-content: space-between; height: 230px; font-size: 11.5px; color: #5B6675; text-align: right; padding-bottom: 22px; box-sizing: border-box; margin-top: -7px">
+<span>6 000</span><span>4 500</span><span>3 000</span><span>1 500</span><span>0</span>
+</div>
+<div style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px">
+<div style="position: relative; height: 200px">
+<svg role="img" aria-label="Revenus mensuels de décembre 2025 à novembre 2026, de 2 900 à 5 230 USD, en hausse régulière" viewBox="0 0 600 200" preserveAspectRatio="none" style="position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible">
+<defs><linearGradient id="revfill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0070B0" stop-opacity="0.18"></stop><stop offset="1" stop-color="#0070B0" stop-opacity="0"></stop></linearGradient></defs>
+<path d="M0 0H600M0 50H600M0 100H600M0 150H600" stroke="#E8EDF2" stroke-width="1" vector-effect="non-scaling-stroke" fill="none"></path>
+<path d="M0 200H600" stroke="#D5DCE4" stroke-width="1" vector-effect="non-scaling-stroke" fill="none"></path>
+<path d="M0 103.3 L54.5 95 L109.1 86.7 L163.6 90.7 L218.2 74.7 L272.7 66 L327.3 68.3 L381.8 54 L436.4 46.3 L490.9 48.7 L545.5 34 L600 25.7 L600 200 L0 200 Z" fill="url(#revfill)"></path>
+<path d="M0 103.3 L54.5 95 L109.1 86.7 L163.6 90.7 L218.2 74.7 L272.7 66 L327.3 68.3 L381.8 54 L436.4 46.3 L490.9 48.7 L545.5 34 L600 25.7" fill="none" stroke="#0070B0" stroke-width="2.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"></path>
+<path d="M545.5 34 V200" stroke="#0F1B2A" stroke-width="1" stroke-dasharray="4 4" vector-effect="non-scaling-stroke"></path>
+</svg>
+<span aria-hidden="true" style="position: absolute; left: 90.9%; top: 17%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border-radius: 50%; background: #FFFFFF; border: 3px solid #0070B0; box-sizing: border-box"></span>
+<div style="position: absolute; left: 90.9%; top: 17%; transform: translate(-108%, -125%); background: #0F1B2A; color: #FFFFFF; border-radius: 10px; padding: 8px 12px; white-space: nowrap; box-shadow: 0 6px 18px rgba(15,27,42,0.18)">
+<p style="margin: 0; font-size: 11.5px; color: #C9D3DE">Octobre 2026</p>
+<p style="margin: 2px 0 0; font-size: 15px; font-weight: 800">4 980 USD</p>
+</div>
+</div>
+<div aria-hidden="true" style="display: flex; justify-content: space-between; font-size: 11.5px; color: #5B6675">
+<span>Déc</span><span>Jan</span><span>Fév</span><span>Mar</span><span>Avr</span><span>Mai</span><span>Juin</span><span>Juil</span><span>Août</span><span>Sep</span><span>Oct</span><span>Nov</span>
+</div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="pay-title" style="flex: 1 1 320px; min-width: 0; background: #FFFFFF; border: 1px solid #E3E8EE; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 18px">
+<div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 12px">
+<div>
+<h2 id="pay-title" style="margin: 0; font-size: 17px; font-weight: 800">Santé des paiements</h2>
+<p style="margin: 3px 0 0; color: #5B6675; font-size: 13px">1 284 transactions · 30 derniers jours</p>
+</div>
+<a href="Paiements.dc.html" style="font-size: 13px; font-weight: 700; min-height: 32px; display: inline-flex; align-items: center">Détails</a>
+</div>
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 24px">
+<div style="position: relative; width: 168px; height: 168px">
+<svg role="img" aria-label="91,4 % approuvés, 6,1 % échoués, 2,5 % expirés" viewBox="0 0 36 36" style="width: 100%; height: 100%; transform: rotate(-90deg)">
+<circle cx="18" cy="18" r="15.915" fill="none" stroke="#EEF2F6" stroke-width="4"></circle>
+<circle cx="18" cy="18" r="15.915" fill="none" stroke="#0070B0" stroke-width="4" stroke-dasharray="90.4 9.6" stroke-dashoffset="0"></circle>
+<circle cx="18" cy="18" r="15.915" fill="none" stroke="#B42318" stroke-width="4" stroke-dasharray="5.1 94.9" stroke-dashoffset="-91.4"></circle>
+<circle cx="18" cy="18" r="15.915" fill="none" stroke="#F4A82E" stroke-width="4" stroke-dasharray="1.5 98.5" stroke-dashoffset="-97.5"></circle>
+</svg>
+<div style="position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center">
+<span style="font-size: 26px; font-weight: 800; letter-spacing: -0.02em">91,4 %</span>
+<span style="font-size: 12px; color: #5B6675">de succès</span>
+</div>
+</div>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; flex: 1 1 150px">
+<li style="display: flex; align-items: center; gap: 10px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #0070B0"></span><span style="flex: 1">Approuvés</span><strong>1 174</strong></li>
+<li style="display: flex; align-items: center; gap: 10px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #B42318"></span><span style="flex: 1">Échoués</span><strong>78</strong></li>
+<li style="display: flex; align-items: center; gap: 10px"><span style="width: 10px; height: 10px; border-radius: 3px; background: #F4A82E"></span><span style="flex: 1">Expirés (timeout)</span><strong>32</strong></li>
+</ul>
+</div>
+<div style="background: #FEF3E2; border-radius: 12px; padding: 12px 14px; display: flex; gap: 10px; align-items: flex-start; color: #6B3F00; font-size: 13px; line-height: 1.45">
+<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0; margin-top: 1px"><path d="M12 3 2 20h20z"></path><path d="M12 10v4M12 17h.01"></path></svg>
+<span>110 paiements non aboutis : 23 entreprises sont à relancer.</span>
+</div>
+</section>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px">
+
+<section aria-labelledby="prov-title" style="flex: 1 1 340px; min-width: 0; background: #FFFFFF; border: 1px solid #E3E8EE; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 18px">
+<div>
+<h2 id="prov-title" style="margin: 0; font-size: 17px; font-weight: 800">Paiements par opérateur</h2>
+<p style="margin: 3px 0 0; color: #5B6675; font-size: 13px">Montant encaissé et nombre de transactions</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 16px">
+<div style="display: flex; flex-direction: column; gap: 7px">
+<div style="display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px"><span style="font-weight: 600">Orange Money</span><span><strong>19 840 USD</strong> <span style="color: #5B6675">· 512</span></span></div>
+<div style="height: 10px; background: #EEF2F6; border-radius: 999px; overflow: hidden"><div style="width: 100%; height: 100%; background: #0070B0; border-radius: 999px"></div></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 7px">
+<div style="display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px"><span style="font-weight: 600">M-Pesa</span><span><strong>16 210 USD</strong> <span style="color: #5B6675">· 438</span></span></div>
+<div style="height: 10px; background: #EEF2F6; border-radius: 999px; overflow: hidden"><div style="width: 82%; height: 100%; background: #0070B0; border-radius: 999px"></div></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 7px">
+<div style="display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px"><span style="font-weight: 600">Airtel Money</span><span><strong>8 120 USD</strong> <span style="color: #5B6675">· 221</span></span></div>
+<div style="height: 10px; background: #EEF2F6; border-radius: 999px; overflow: hidden"><div style="width: 41%; height: 100%; background: #0070B0; border-radius: 999px"></div></div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 7px">
+<div style="display: flex; justify-content: space-between; gap: 8px; font-size: 13.5px"><span style="font-weight: 600">Carte bancaire</span><span><strong>4 030 USD</strong> <span style="color: #5B6675">· 113</span></span></div>
+<div style="height: 10px; background: #EEF2F6; border-radius: 999px; overflow: hidden"><div style="width: 20%; height: 100%; background: #0070B0; border-radius: 999px"></div></div>
+</div>
+</div>
+</section>
+
+<section aria-labelledby="exp-title" style="flex: 2 1 520px; min-width: 0; background: #FFFFFF; border: 1px solid #E3E8EE; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 12px">
+<div>
+<h2 id="exp-title" style="margin: 0; font-size: 17px; font-weight: 800">Abonnements qui expirent bientôt</h2>
+<p style="margin: 3px 0 0; color: #5B6675; font-size: 13px">Dans les 14 prochains jours</p>
+</div>
+<a href="#" style="font-size: 13px; font-weight: 700; min-height: 32px; display: inline-flex; align-items: center">Tout voir</a>
+</div>
+<ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column">
+<li class="row-hover" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 8px; border-top: 1px solid #EEF2F6; border-radius: 8px">
+<span aria-hidden="true" style="width: 38px; height: 38px; border-radius: 10px; background: #E6F1F8; color: #005A8E; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 13px">PB</span>
+<div style="flex: 1 1 180px; min-width: 0"><p style="margin: 0; font-weight: 700">Pharmacie Bon Berger</p><p style="margin: 1px 0 0; font-size: 12.5px; color: #5B6675">Plan Pro · expire le 26 nov.</p></div>
+<span style="font-size: 12px; font-weight: 700; color: #9F1C12; background: #FDECEA; border-radius: 999px; padding: 4px 10px">3 jours</span>
+<button type="button" style="height: 36px; padding: 0 14px; border-radius: 9px; border: 1px solid #0070B0; background: #FFFFFF; color: #005A8E; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer">Prolonger</button>
+</li>
+<li class="row-hover" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 8px; border-top: 1px solid #EEF2F6; border-radius: 8px">
+<span aria-hidden="true" style="width: 38px; height: 38px; border-radius: 10px; background: #E6F1F8; color: #005A8E; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 13px">GL</span>
+<div style="flex: 1 1 180px; min-width: 0"><p style="margin: 0; font-weight: 700">Grande Pharmacie Lumumba</p><p style="margin: 1px 0 0; font-size: 12.5px; color: #5B6675">Plan Business · expire le 28 nov.</p></div>
+<span style="font-size: 12px; font-weight: 700; color: #9F1C12; background: #FDECEA; border-radius: 999px; padding: 4px 10px">5 jours</span>
+<button type="button" style="height: 36px; padding: 0 14px; border-radius: 9px; border: 1px solid #0070B0; background: #FFFFFF; color: #005A8E; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer">Prolonger</button>
+</li>
+<li class="row-hover" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 8px; border-top: 1px solid #EEF2F6; border-radius: 8px">
+<span aria-hidden="true" style="width: 38px; height: 38px; border-radius: 10px; background: #FEF3E2; color: #8A5200; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 13px">KM</span>
+<div style="flex: 1 1 180px; min-width: 0"><p style="margin: 0; font-weight: 700">Kin Market Gombe</p><p style="margin: 1px 0 0; font-size: 12.5px; color: #5B6675">Essai · expire le 30 nov.</p></div>
+<span style="font-size: 12px; font-weight: 700; color: #8A5200; background: #FEF3E2; border-radius: 999px; padding: 4px 10px">7 jours</span>
+<button type="button" style="height: 36px; padding: 0 14px; border-radius: 9px; border: 1px solid #0070B0; background: #FFFFFF; color: #005A8E; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer">Prolonger</button>
+</li>
+<li class="row-hover" style="display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 8px; border-top: 1px solid #EEF2F6; border-radius: 8px">
+<span aria-hidden="true" style="width: 38px; height: 38px; border-radius: 10px; background: #E6F1F8; color: #005A8E; font-weight: 800; display: flex; align-items: center; justify-content: center; font-size: 13px">PP</span>
+<div style="flex: 1 1 180px; min-width: 0"><p style="margin: 0; font-weight: 700">Pharma Plus Limete</p><p style="margin: 1px 0 0; font-size: 12.5px; color: #5B6675">Plan Pro · expire le 2 déc.</p></div>
+<span style="font-size: 12px; font-weight: 700; color: #33404F; background: #EEF2F6; border-radius: 999px; padding: 4px 10px">9 jours</span>
+<button type="button" style="height: 36px; padding: 0 14px; border-radius: 9px; border: 1px solid #0070B0; background: #FFFFFF; color: #005A8E; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer">Prolonger</button>
+</li>
+</ul>
+</section>
+</div>
+
+<section aria-labelledby="new-title" style="background: #FFFFFF; border: 1px solid #E3E8EE; border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 14px">
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px">
+<div>
+<h2 id="new-title" style="margin: 0; font-size: 17px; font-weight: 800">Nouvelles entreprises</h2>
+<p style="margin: 3px 0 0; color: #5B6675; font-size: 13px">Les 5 dernières inscriptions</p>
+</div>
+<div style="display: flex; gap: 8px; flex-wrap: wrap">
+<button type="button" style="height: 40px; padding: 0 14px; border-radius: 10px; border: 1px solid #D5DCE4; background: #FFFFFF; color: #33404F; font: inherit; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; cursor: pointer"><svg aria-hidden="true" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"></path></svg>Exporter</button>
+<a href="#" style="height: 40px; padding: 0 16px; border-radius: 10px; background: #0070B0; color: #FFFFFF; font-size: 13px; font-weight: 700; display: inline-flex; align-items: center; gap: 8px; box-sizing: border-box">Voir toutes les entreprises</a>
+</div>
+</div>
+<div style="overflow-x: auto">
+<table style="width: 100%; min-width: 760px; border-collapse: collapse; font-size: 13.5px">
+<thead>
+<tr style="text-align: left; color: #5B6675; font-size: 12px; letter-spacing: 0.03em">
+<th scope="col" style="padding: 10px 12px; font-weight: 700; background: #F7FAFC; border-radius: 8px 0 0 8px">ENTREPRISE</th>
+<th scope="col" style="padding: 10px 12px; font-weight: 700; background: #F7FAFC">CONTACT</th>
+<th scope="col" style="padding: 10px 12px; font-weight: 700; background: #F7FAFC">PLAN</th>
+<th scope="col" style="padding: 10px 12px; font-weight: 700; background: #F7FAFC; text-align: right">UTIL.</th>
+<th scope="col" style="padding: 10px 12px; font-weight: 700; background: #F7FAFC; text-align: right">POINTS DE VENTE</th>
+<th scope="col" style="padding: 10px 12px; font-weight: 700; background: #F7FAFC">STATUT</th>
+<th scope="col" style="padding: 10px 12px; font-weight: 700; background: #F7FAFC; border-radius: 0 8px 8px 0">INSCRITE LE</th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-hover" style="border-bottom: 1px solid #EEF2F6">
+<td style="padding: 13px 12px"><a href="#" style="font-weight: 700; color: #0F1B2A">Pharmacie La Grâce</a><br><span style="font-size: 12px; color: #5B6675">RCCM CD/KIN/26-B-01842</span></td>
+<td style="padding: 13px 12px; color: #33404F">+243 81 234 5678</td>
+<td style="padding: 13px 12px">Pro</td>
+<td style="padding: 13px 12px; text-align: right">6</td>
+<td style="padding: 13px 12px; text-align: right">2</td>
+<td style="padding: 13px 12px"><span style="font-size: 12px; font-weight: 700; color: #005A8E; background: #E6F1F8; border-radius: 999px; padding: 4px 10px">Payé</span></td>
+<td style="padding: 13px 12px; color: #33404F">22 nov. 2026</td>
+</tr>
+<tr class="row-hover" style="border-bottom: 1px solid #EEF2F6">
+<td style="padding: 13px 12px"><a href="#" style="font-weight: 700; color: #0F1B2A">Supermarché Victoire</a><br><span style="font-size: 12px; color: #5B6675">RCCM CD/KIN/26-B-01831</span></td>
+<td style="padding: 13px 12px; color: #33404F">+243 99 876 1122</td>
+<td style="padding: 13px 12px">Business</td>
+<td style="padding: 13px 12px; text-align: right">14</td>
+<td style="padding: 13px 12px; text-align: right">3</td>
+<td style="padding: 13px 12px"><span style="font-size: 12px; font-weight: 700; color: #005A8E; background: #E6F1F8; border-radius: 999px; padding: 4px 10px">Payé</span></td>
+<td style="padding: 13px 12px; color: #33404F">21 nov. 2026</td>
+</tr>
+<tr class="row-hover" style="border-bottom: 1px solid #EEF2F6">
+<td style="padding: 13px 12px"><a href="#" style="font-weight: 700; color: #0F1B2A">Kin Market Gombe</a><br><span style="font-size: 12px; color: #5B6675">RCCM CD/KIN/26-B-01807</span></td>
+<td style="padding: 13px 12px; color: #33404F">+243 85 400 2290</td>
+<td style="padding: 13px 12px">Starter</td>
+<td style="padding: 13px 12px; text-align: right">2</td>
+<td style="padding: 13px 12px; text-align: right">1</td>
+<td style="padding: 13px 12px"><span style="font-size: 12px; font-weight: 700; color: #8A5200; background: #FEF3E2; border-radius: 999px; padding: 4px 10px">Essai</span></td>
+<td style="padding: 13px 12px; color: #33404F">19 nov. 2026</td>
+</tr>
+<tr class="row-hover" style="border-bottom: 1px solid #EEF2F6">
+<td style="padding: 13px 12px"><a href="#" style="font-weight: 700; color: #0F1B2A">Dépôt Pharma Matete</a><br><span style="font-size: 12px; color: #5B6675">RCCM CD/KIN/26-B-01795</span></td>
+<td style="padding: 13px 12px; color: #33404F">+243 82 551 0047</td>
+<td style="padding: 13px 12px">Pro</td>
+<td style="padding: 13px 12px; text-align: right">4</td>
+<td style="padding: 13px 12px; text-align: right">1</td>
+<td style="padding: 13px 12px"><span style="font-size: 12px; font-weight: 700; color: #9F1C12; background: #FDECEA; border-radius: 999px; padding: 4px 10px">Impayé</span></td>
+<td style="padding: 13px 12px; color: #33404F">18 nov. 2026</td>
+</tr>
+<tr class="row-hover">
+<td style="padding: 13px 12px"><a href="#" style="font-weight: 700; color: #0F1B2A">Boutique Mama Nathalie</a><br><span style="font-size: 12px; color: #5B6675">RCCM CD/KIN/26-A-00912</span></td>
+<td style="padding: 13px 12px; color: #33404F">+243 97 310 8854</td>
+<td style="padding: 13px 12px">Starter</td>
+<td style="padding: 13px 12px; text-align: right">1</td>
+<td style="padding: 13px 12px; text-align: right">1</td>
+<td style="padding: 13px 12px"><span style="font-size: 12px; font-weight: 700; color: #8A5200; background: #FEF3E2; border-radius: 999px; padding: 4px 10px">Essai</span></td>
+<td style="padding: 13px 12px; color: #33404F">17 nov. 2026</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+
+</div>
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1640}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

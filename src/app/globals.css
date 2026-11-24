@@ -1,0 +1,146 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+ * ToonaSHOP Admin design tokens.
+ * Values come from the approved prototype (Main.dc.html). The console is
+ * light-only for now. The class-based `dark` variant below keeps the `dark:`
+ * utilities shipped with shadcn components inert unless a `.dark` class is set.
+ */
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Brand & semantic scales */
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-muted: var(--brand-muted);
+  --color-orange: var(--orange);
+  --color-orange-muted: var(--orange-muted);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-warning-strong: var(--warning-strong);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-danger: var(--danger);
+  --color-danger-strong: var(--danger-strong);
+  --color-danger-soft: var(--danger-soft);
+  --color-surface-subtle: var(--surface-subtle);
+  --color-track: var(--track);
+  --color-hover: var(--hover);
+  --color-divider: var(--divider);
+  --color-axis: var(--axis);
+  --color-grid: var(--grid);
+
+  /* Categorical chart palette (validated for contrast & colour-blindness) */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --radius: 0.625rem; /* 10px — nav items, inputs; cards use rounded-2xl (16px) */
+
+  --background: #f3f6f9;
+  --foreground: #0f1b2a;
+  --card: #ffffff;
+  --card-foreground: #0f1b2a;
+  --popover: #ffffff;
+  --popover-foreground: #0f1b2a;
+  --primary: #0070b0;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f4f8;
+  --secondary-foreground: #33404f;
+  --muted: #f1f4f8;
+  --muted-foreground: #5b6675;
+  --accent: #eef3f7;
+  --accent-foreground: #0f1b2a;
+  --destructive: #b42318;
+  --border: #e3e8ee;
+  --input: #d5dce4;
+  --ring: #0070b0;
+
+  --ink: #0f1b2a;
+  --ink-soft: #33404f;
+  --brand: #0070b0;
+  --brand-strong: #005a8e;
+  --brand-soft: #e6f1f8;
+  --brand-muted: #cfe3f0;
+  --orange: #f4a82e;
+  --orange-muted: #fbdda8;
+  --warning: #8a5200;
+  --warning-soft: #fef3e2;
+  --warning-strong: #6b3f00;
+  --success: #166534;
+  --success-soft: #e8f5ec;
+  --danger: #b42318;
+  --danger-strong: #9f1c12;
+  --danger-soft: #fdecea;
+  --surface-subtle: #f7fafc;
+  --track: #eef2f6;
+  --hover: #eef3f7;
+  --divider: #eef2f6;
+  --axis: #d5dce4;
+  --grid: #e8edf2;
+
+  --chart-1: #0070b0;
+  --chart-2: #c97a00;
+  --chart-3: #0e9384;
+  --chart-4: #8b5cf6;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply font-sans;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-size: 14px;
+  }
+}
+
+@layer components {
+  /* Recharts focus outlines are noisy on click; keyboard focus stays on HTML controls. */
+  .recharts-wrapper *:focus {
+    outline: none;
+  }
+}
